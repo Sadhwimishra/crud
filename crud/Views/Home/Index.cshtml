@@ -1,0 +1,36 @@
+﻿@model IEnumerable<crud.Models.Employees>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<a asp-controller="Home" asp-action="Create" class="btn btn-success">Create</a>
+<div class="text-center">
+    <h1 class="display-4">Employees</h1>
+    <table class="table">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>Gender</th>
+            <th>Department</th>
+            <th>Action</th>
+        </tr>
+        @foreach(var emp in Model)
+            {
+    <tr>
+        <td>@emp.id</td>
+        <td>@emp.name</td>
+        <td>@emp.email</td>
+        <td>@emp.mobile</td>
+        <td>@emp.gender</td>
+        <td>@emp.DName</td>
+        <td>
+            <a asp-controller="Home" asp-action="Update" asp-route-id="@emp.id">Edit</a> ||
+            <a asp-controller="Home" asp-action="Delete" asp-route-id="@emp.id">Delete</a>
+        </td>
+    </tr>
+            }
+    </table>
+  
+</div>
